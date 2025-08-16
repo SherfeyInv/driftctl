@@ -1,4 +1,4 @@
-FROM golang:1.18 AS builder
+FROM golang:1.23 AS builder
 
 ARG OS="linux"
 ARG ARCH="amd64"
@@ -9,7 +9,7 @@ RUN go mod download
 COPY . .
 RUN SINGLE_TARGET=true make release
 
-FROM alpine:3.17
+FROM alpine:3.21.2
 
 ARG OS="linux"
 ARG ARCH="amd64"

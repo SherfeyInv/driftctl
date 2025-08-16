@@ -57,13 +57,13 @@ clean:
 
 .PHONY: lint
 lint:
-	@which golangci-lint > /dev/null 2>&1 || (curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | bash -s -- -b $(GOBINPATH) v1.46.2)
+	@which golangci-lint > /dev/null 2>&1 || (curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | bash -s -- -b $(GOBINPATH) v1.64.7)
 	golangci-lint run -v --timeout=10m
 
 .PHONY: install-tools
 install-tools:
 	$(GOINSTALL) gotest.tools/gotestsum@v1.10.0
-	$(GOINSTALL) github.com/vektra/mockery/v2@latest
+	$(GOINSTALL) github.com/vektra/mockery/v2@v2.36.1
 
 
 go.mod: FORCE
